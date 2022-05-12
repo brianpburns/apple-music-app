@@ -3,33 +3,27 @@ import { ControlButton, WithControls } from 'smart-builder-sdk';
 import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
 
 import { DataStructure } from '../types';
-// import { getVideoId } from '../util/get-video-id';
+import { getSongId } from '../util/get-song-id';
 import { Panel } from './control-panel';
 import { Placeholder } from './placeholder';
 import { SpotifyIcon as SettingsIcon } from './spotify-icon';
 import { Overlay, Wrapper } from './styled';
 
-const PromoComponent = ({ data, mode }: ComponentProps<DataStructure, WithStylesProps>) => {
-  const { src } = data;
-
-  // const videoId = getVideoId(src);
-  // const loop = mode.type !== 'edit' && loopVideo ? '&loop=1' : '';
-  // const shouldAutoPlay = mode.type !== 'edit' && autoPlay ? '&autoplay=1' : '';
-
-  // <iframe
-  //   height="80"
-  // ></iframe>;
+const SpotifyComponent = ({ data, mode }: ComponentProps<DataStructure, WithStylesProps>) => {
+  const { src, compact } = data;
+  const songId = getSongId(src);
+  const contentType = src.includes('track') ? 'track' : 'playlist';
 
   return (
-    <Wrapper>
+    <Wrapper hasSrc={!!songId}>
       {mode.type === 'edit' && <Overlay />}
-      {src ? (
+      {songId ? (
         <iframe
           style={{ borderRadius: '12px' }}
           title="Spotify Player"
-          src="https://open.spotify.com/embed/track/5qZBvVFfd3rdfcSFOhLmLo?utm_source=generator"
+          src={`https://open.spotify.com/embed/${contentType}/${songId}?utm_source=generator`}
           width="100%"
-          height="380"
+          height={compact ? '80' : '380'}
           frameBorder="0"
           allowFullScreen={false}
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -41,9 +35,9 @@ const PromoComponent = ({ data, mode }: ComponentProps<DataStructure, WithStyles
   );
 };
 
-const label = 'Add Promo Video';
+const label = 'Spotify';
 
-export default WithControls(PromoComponent, [
+export default WithControls(SpotifyComponent, [
   {
     id: 'design',
     label: label,

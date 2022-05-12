@@ -1,18 +1,10 @@
 import { Checkbox, InputField } from 'smart-builder-components';
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ hasSrc: boolean }>`
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
-  iframe {
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    height: 0;
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
-  }
+  height: ${({ hasSrc }) => (hasSrc ? '100%' : '100px')};
 `;
 
 export const Info = styled.p`
@@ -45,6 +37,7 @@ export const Overlay = styled.div`
   right: 0;
   left: 0;
   z-index: 11;
+  height: 80px;
 `;
 
 export const StyledCheckbox = styled(Checkbox)`

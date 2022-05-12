@@ -1,13 +1,13 @@
 {
-  "appId": "@external/helloWorld",
+  "appId": "@burns/spotify",
   "version": "0.1",
-  "name": "Hello World",
+  "name": "Spotify",
   "isBeta": true,
   "isSwappable": true,
-  "description": "Hello World example",
-  "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/HelloWorld.svg",
+  "description": "Embed a song or playlist from Spotify",
+  "iconUrl": "https://cdn-icons-png.flaticon.com/512/174/174872.png",
   "moreInfoUrl": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
-  "categories": [],
+  "categories": ["media"],
   "files": [],
   "externalScripts": ["http://localhost:8081/index.js"]
 }
