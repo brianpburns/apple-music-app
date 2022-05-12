@@ -1,1 +1,1 @@
-export type DataStructure = { src: string; autoPlay: boolean; compact: boolean };
+export type DataStructure = { src: string; compact: boolean };

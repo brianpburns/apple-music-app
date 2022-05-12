@@ -8,7 +8,7 @@ import { Panel } from './control-panel';
 const setMock = jest.fn();
 const closeMock = jest.fn();
 const props = {
-  data: { autoPlay: false },
+  data: {},
   dispatch: (callback: any) => {
     callback({ get: () => ({ set: setMock }) });
   },
