@@ -13,9 +13,17 @@ export const Panel = ({ data, dispatch }: ControlPanelProps<DataStructure>) => {
 
   useEffect(() => {
     const srcError = tempSrc && !validateUrl(tempSrc);
+    // Embedding an artist requires extra authorisation so disabling it
+    const artistError = tempSrc.includes('artist');
+    // Can't embed a category
+    const categoryError = tempSrc.includes('curator');
 
     if (srcError) {
-      setErrorMessage(`Oops! That URL doesn't look like an Apple Music song or playlist link.`);
+      setErrorMessage(`Oops! That URL doesn't look correct. Ensure it is a song, playlist or album link.`);
+    } else if (artistError) {
+      setErrorMessage('Oops! Links to artists are not supported. Please link a song, playlist or album.');
+    } else if (categoryError) {
+      setErrorMessage('Oops! Links to categories are not supported. Please link a song, playlist or album.');
     } else {
       setErrorMessage('');
     }
@@ -24,16 +32,10 @@ export const Panel = ({ data, dispatch }: ControlPanelProps<DataStructure>) => {
   const onUrlChange = () => {
     if (errorMessage) return;
 
-    dispatch((api) => {
-      api.get('src').set(tempSrc);
-    });
+    dispatch((api) => api.get('src').set(tempSrc));
   };
 
-  const toggleCompactPlayer = () => {
-    dispatch((api) => {
-      api.get('compact').set(!compact);
-    });
-  };
+  const toggleCompactPlayer = () => dispatch((api) => api.get('compact').set(!compact));
 
   return (
     <ControlsContainer>
