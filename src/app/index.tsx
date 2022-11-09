@@ -5,7 +5,7 @@ import AppleMusicComponent from './components/apple-music-component';
 const schema = Schema.object({
   src: Schema.string(),
   compact: Schema.boolean().default(false),
-}).noControls();
+});
 
 export const Component = component({
   componentTypeId: 'appleMusic',
