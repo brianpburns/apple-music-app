@@ -1,5 +1,5 @@
 {
-  "name": "sb-sample-extension",
+  "name": "apple-music",
   "description": "Extension Sample",
   "version": "0.0.0",
   "main": "dist/index.js",
