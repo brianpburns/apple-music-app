@@ -3,15 +3,13 @@ import { ComponentProps, ControlButton, WithControls, WithStylesProps } from 'sm
 
 import { DataStructure } from '../types';
 import { generateUrl } from '../util';
-import { AppleMusicIcon } from './apple-music-icon';
 import { Panel } from './control-panel';
 import { Placeholder } from './placeholder';
+import { SettingsIcon } from './settings-icon';
 import { Overlay, Wrapper } from './styled';
 
 const AppleMusicComponent = ({ data, mode }: ComponentProps<DataStructure, WithStylesProps>) => {
   const { src, compact } = data;
-
-  // https://music.apple.com/us/artist/leisure-club/1108517666
 
   return (
     <Wrapper hasSrc={!!src}>
@@ -40,7 +38,7 @@ export default WithControls(AppleMusicComponent, [
     label: label,
     Button: (props) => (
       <ControlButton label={label} active={false} {...props}>
-        <AppleMusicIcon />
+        <SettingsIcon />
       </ControlButton>
     ),
     Panel,
