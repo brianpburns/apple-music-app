@@ -5,6 +5,11 @@ export const Wrapper = styled.div<{ hasSrc: boolean }>`
   position: relative;
   width: 100%;
   height: ${({ hasSrc }) => (hasSrc ? '100%' : '100px')};
+
+  iframe {
+    /* border: none; */
+    /* height: 100%; */
+  }
 `;
 
 export const Info = styled.p`
@@ -37,7 +42,7 @@ export const Overlay = styled.div`
   right: 0;
   left: 0;
   z-index: 11;
-  height: 80px;
+  height: 100%;
 `;
 
 export const StyledCheckbox = styled(Checkbox)`

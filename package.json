@@ -17,8 +17,9 @@
     "lint:prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "build": "rm -rf dist && webpack --env production",
-    "start": "rm -rf dist && webpack --watch",
-    "serve": "node serve-local-files.js"
+    "start": "rm -rf dist && npm run compile-manifest && webpack --watch",
+    "serve": "node serve-local-files.js",
+    "compile-manifest": "tsc --project tsconfig.manifest.json"
   },
   "engines": {
     "node": ">=14.0.0",
@@ -57,14 +58,14 @@
     "nodemon": "^2.0.12",
     "prettier": "^2.3.0",
     "tsconfig-paths-jest": "^0.0.1",
-    "typescript": "^4.3.2",
-    "unbounce-smart-builder-sdk-types": "^1.0.3",
+    "typescript": "4.6.4",
     "webpack": "^5.59.0",
     "webpack-cli": "^4.9.1",
     "whatwg-fetch": "^3.6.2"
   },
   "peerDependencies": {
     "react": "^17.0.2",
+    "smart-builder-sdk": "https://app-assets-unbounce-com.s3.amazonaws.com/content-smart-builder-apps/smart-builder-sdk/smart-builder-sdk-1.0.0-beta.100.tgz",
     "styled-components": "^5.3.3"
   }
 }

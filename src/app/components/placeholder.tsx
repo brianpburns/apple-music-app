@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { SpotifyIcon } from './spotify-icon';
+import { AppleMusicIcon } from './apple-music-icon';
 
 const Wrapper = styled.div`
   display: grid;
@@ -21,8 +21,8 @@ const Wrapper = styled.div`
 
 export const Placeholder = () => {
   return (
-    <Wrapper data-testid="spotify-placeholder">
-      <SpotifyIcon />
+    <Wrapper data-testid="apple-music-placeholder">
+      <AppleMusicIcon />
     </Wrapper>
   );
 };
