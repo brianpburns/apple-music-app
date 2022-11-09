@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Label } from 'smart-builder-components';
-import { ControlPanelProps } from 'unbounce-smart-builder-sdk-types';
+import { ControlPanelProps } from 'smart-builder-sdk';
 
 import { DataStructure } from '../types';
 import { validateUrl } from '../util';
@@ -15,7 +15,7 @@ export const Panel = ({ data, dispatch }: ControlPanelProps<DataStructure>) => {
     const srcError = tempSrc && !validateUrl(tempSrc);
 
     if (srcError) {
-      setErrorMessage(`Oops! That URL doesn't look like a Apple Music song or playlist link.`);
+      setErrorMessage(`Oops! That URL doesn't look like an Apple Music song or playlist link.`);
     } else {
       setErrorMessage('');
     }

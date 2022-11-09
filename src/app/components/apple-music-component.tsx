@@ -1,6 +1,5 @@
 import React from 'react';
-import { ControlButton, WithControls } from 'smart-builder-sdk';
-import { ComponentProps, WithStylesProps } from 'unbounce-smart-builder-sdk-types';
+import { ComponentProps, ControlButton, WithControls, WithStylesProps } from 'smart-builder-sdk';
 
 import { DataStructure } from '../types';
 import { generateUrl } from '../util';
